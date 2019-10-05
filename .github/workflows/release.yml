@@ -1,8 +1,11 @@
-name: "CI"
-on: [push]
+name: "Releases"
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   build:
-    name: "Test & Build"
+    name: "Build & Release"
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -13,7 +16,6 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
-      - run: flutter test
       - run: flutter build apk --release --split-per-abi
       - run: flutter build ios --release --no-codesign
       - uses: ncipollo/release-action@v1
