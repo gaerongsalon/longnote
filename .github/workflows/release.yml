@@ -18,8 +18,7 @@ jobs:
       - run: flutter pub get
       - run: flutter build apk --release --split-per-abi
       - run: flutter build ios --release --no-codesign
-      - run: pwd
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "**/release/*.apk,/Users/runner/runners/2.158.0/work/longnote/longnote/build/ios/iphoneos/Runner.app."
+          artifacts: "**/*.ap*"
           token: ${{ secrets.GITHUB_TOKEN }}
