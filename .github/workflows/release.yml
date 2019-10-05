@@ -20,5 +20,5 @@ jobs:
       - run: flutter build ios --release --no-codesign
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/release/*.apk,*/build/ios/iphoneos/*.app"
+          artifacts: "**/release/*.apk,**/*.app"
           token: ${{ secrets.GITHUB_TOKEN }}
